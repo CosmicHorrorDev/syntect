@@ -70,6 +70,7 @@ pub enum Error {
 #[non_exhaustive]
 pub enum LoadingError {
     /// error finding all the files in a directory
+    #[cfg(any(feature = "parsing", feature = "plist-load"))]
     #[error("error finding all the files in a directory: {0}")]
     WalkDir(#[from] walkdir::Error),
     /// error reading a file
